@@ -7,9 +7,17 @@ app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
 });
 
-app.use((req, res) => {
-  console.log("request recieved");
-  let code =
-    "<h1>Fruits</h1> <ul><li>Apple</li><li>Banana</li><li>Cherry</li></ul>";
-  res.send(code);
+app.get("/", (req, res) => {
+  res.send("hello i am root");
 });
+
+// app.get("/:username", (req, res) => {
+//   console.log(req.params);
+//   res.send("hello i am root");
+// });
+
+app.get("/search", (req, res) => {
+  console.log(req.query);
+  res.send("no results");
+});
+   
